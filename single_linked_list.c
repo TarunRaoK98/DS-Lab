@@ -21,31 +21,31 @@ void insert_node(list*,data);
 int main (void)
 {
 	list* list1 ;
-	int choice; 
+	int choice;
 	data val;
 	while(1)
 	{
 		printf("Single Linked List Prompt\n");
 		printf("1. Create New List\n2. Insert Element\n3. Delete Element\n4. Print List\n5. exit\n");
 		scanf("%d",&choice);
-		
+
 		switch(choice)
 		{
-			case 1: list1 = create_list(); 		
+			case 1: list1 = create_list();
 				break;
 
 			case 2: printf("Enter value : \n");
 				scanf("%d",&val);
-				insert_node(list1,val); 	
+				insert_node(list1,val);
 				break;
 
 			case 3: printf("Enter value : \n");
 				scanf("%d",&val);
 				if(delete_node(list1,val)==-1)
-					printf("Element not found\n"); 	
+					printf("Element not found\n");
 				break;
 
-			case 4: print_list(list1); 		
+			case 4: print_list(list1);
 				break;
 
 			case 5: exit(0);
@@ -59,14 +59,14 @@ list* create_list()
 	data val;
 	list* l = malloc(sizeof(list));
 	node* p = malloc(sizeof(node));
-	
+
 	printf("Enter elements one by one, enter -1 to end \n");
 	printf("Enter value : ");
 	scanf("%d",&val);
 	p->value = val;
-	p->next=NULL;	
+	p->next=NULL;
 	l->head=p;
-	
+
 	while(1)
 	{
 		printf("Enter value : ");
@@ -107,7 +107,7 @@ void insert_node(list* l,data val)
 		while(n->next!=NULL && (n->next->value < p->value))
 			n=n->next;
 		p->next=n->next;
-		n->next=p;					
+		n->next=p;
 	}
 }
 
